@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            display: flex;
+            flex-direction: column;
+            background-color: cornflowerblue;
+            align-items: center; /*   left to right      */
+            justify-content: flex-end;        /*    top to bottom      */
+            width: 1000px;  
+            height: 1000px;
+        }
+        #box div {
+            width: 100px;
+            text-align: center;
+            height: 100px;
+            align-items: center; /*   left to right      */
+            justify-content: flex-end;    
+            background-color: bisque;
+            border-width: 1;
+            border-color: red;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="one">First</div>
+        <div id="two">Second</div>
+        <div id="three">Third</div>
+        <div id="four">Fourth</div>
+    </div>
+</body>
+</html>

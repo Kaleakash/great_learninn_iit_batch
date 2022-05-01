@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 0%;
+        }
+        #bar_graph{
+            background-color: whitesmoke;
+            top: 10px;
+            left: 60px;
+        }
+        #bar_graph article{
+            display: inline-block;
+        }
+        div{
+            width: 40px;
+            height: 250px;
+            margin: 20px;
+            background-color: white;
+        }
+        h3{
+            margin-left: 25px;
+        }
+        #bar1{
+            width: 100%;
+            height: 70%; 
+            background-color: white; 
+            animation-name: abc;
+            animation-duration: 5s; 
+        }
+        @keyframes abc {
+            0% {height: 100%;background-color: white;}
+            100% {height: 70%;background-color: white;}
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <section id="bar_graph">
+        <article>
+                <div>
+                      <article id="bar1"></article>  
+                </div>
+                <h3>30%</h3>
+        </article>
+        <article>
+            <div>
+                <article id="bar2"></article>
+            </div>
+            <h3>40%</h3>
+        </article>
+        <article>
+            <div>
+                <article id="bar3"></article>
+            </div>
+            <h3>80%</h3>
+        </article>
+        <h1 style="text-align: center;font-size: 20px;">Bar Plot</h1>
+    </section>
+</body>
+</html>

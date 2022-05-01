@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public void save(Book theBook) {
 		// TODO Auto-generated method stub
-		bookRepository.save(theBook);
+		bookRepository.saveAndFlush(theBook);
 	}
 	@Override
 	public void deleteById(int theId) {
@@ -37,6 +37,11 @@ public class BookServiceImpl implements BookService{
 	public List<Book> searchBy(String name, String author) {
 		// TODO Auto-generated method stub
 		return bookRepository.searchBookByNameAndAuthor(name, author);
+	}
+	@Override
+	public void update(Book theBook) {
+		bookRepository.save(theBook);
+		
 	}
 
 	

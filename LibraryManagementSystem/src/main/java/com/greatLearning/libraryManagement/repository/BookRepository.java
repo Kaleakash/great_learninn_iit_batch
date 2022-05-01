@@ -10,7 +10,7 @@ import com.greatLearning.libraryManagement.entity.Book;
 
 public interface BookRepository extends JpaRepository<Book, Integer>{
 	
-	@Query("select book from Book book where book.name = :n and book.author =:a")
+	@Query("select book from Book book where book.name = :n or book.author =:a")
 	public List<Book> searchBookByNameAndAuthor(@Param("n") String name, @Param("a") String author);
 	
 //	@Query("select book from Book book where book.name = 1?")

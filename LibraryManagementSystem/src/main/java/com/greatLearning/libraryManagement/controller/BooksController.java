@@ -47,10 +47,10 @@ public class BooksController {
 
 	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
-		System.out.println("I came here");
+		System.out.println("I came here.....");
 		// create model attribute to bind form data
 		Book theBook = new Book();
-
+	
 		theModel.addAttribute("Book", theBook);
 
 		return "Book-form";
@@ -59,12 +59,17 @@ public class BooksController {
 	
 	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("bookId") int theId,
-			Model theModel) {
+			Model theModel) 
+		{
 
 		// get the Book from the service
 		Book theBook = bookService.findById(theId);
-
-
+//		theBook.setAuthor(author);
+//		theBook.setCategory(category);
+//		theBook.setName(author);
+//		System.out.println();
+//		bookService.update(theBook);
+		
 		// set Book as a model attribute to pre-populate the form
 		theModel.addAttribute("Book", theBook);
 
@@ -72,29 +77,25 @@ public class BooksController {
 		return "Book-form";			
 	}
 
-//	@RequestMapping("/open")
-//	public String openPage() {
-//		return "sample";
-//	}
-
 	@PostMapping("/save")
 	public String saveBook(@RequestParam("id") int id,
-			@RequestParam("name") String name,@RequestParam("category") String category,@RequestParam("author") String author) {
+			@RequestParam("name") String name,@RequestParam("category") String category,
+			@RequestParam("author") String author) {
 
 		System.out.println(id);
 		Book theBook;
 		if(id!=0)
 		{
 			theBook=bookService.findById(id);
-			//theBook.setName(name);
-			//theBook.setCategory(category);
-			//theBook.setAuthor(author);
+			theBook.setName(name);
+			theBook.setCategory(category);
+			theBook.setAuthor(author);
 		}
 		else
 			theBook=new Book(name, category, author);
 		// save the Book
 		bookService.save(theBook);
-
+		System.out.println(theBook);
 
 		// use a redirect to prevent duplicate submissions
 		return "redirect:/books/list";
@@ -139,22 +140,22 @@ public class BooksController {
 
 	}
 	
-//	@RequestMapping(value = "/403")
-//	public ModelAndView accesssDenied(Principal user) {
-//
-//		ModelAndView model = new ModelAndView();
-//
-//		if (user != null) {
-//			model.addObject("msg", "Hi " + user.getName() 
-//			+ ", you do not have permission to access this page!");
-//		} else {
-//			model.addObject("msg", 
-//			"You do not have permission to access this page!");
-//		}
-//
-//		model.setViewName("403");
-//		return model;
-//
-//	}
+	@RequestMapping(value = "/403")
+	public ModelAndView accesssDenied(Principal user) {
+
+		ModelAndView model = new ModelAndView();
+
+		if (user != null) {
+			model.addObject("msg", "Hi " + user.getName() 
+			+ ", you do not have permission to access this page!");
+		} else {
+			model.addObject("msg", 
+			"You do not have permission to access this page!");
+		}
+
+		model.setViewName("403");
+		return model;
+
+	}
 	
 }
