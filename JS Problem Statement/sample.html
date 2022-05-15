@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input {
+            border: solid 1px black;
+            height: 20px;
+            width: 120px; 
+            text-align: right;  
+        }
+        #buttons{
+            margin-top: -20px;
+            border: solid 1px black;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <div id="input">
+
+    </div>
+    <br/>
+    <div id="buttons">
+    <input type="button" value="1" onclick="doTask('1')"/>
+    <input type="button" value="2" onclick="doTask('2')"/>
+    <input type="button" value="3" onclick="doTask('3')"/><br/>
+    <input type="button" value="4" onclick="doTask('4')"/>
+    <input type="button" value="5" onclick="doTask('5')"/>
+    <input type="button" value="6" onclick="doTask('6')"/><br/>
+    <input type="button" value="7" onclick="doTask('7')"/>
+    <input type="button" value="8" onclick="doTask('8')"/>
+    <input type="button" value="9" onclick="doTask('9')"/><br/>
+    <input type="button" value="+" onclick="doTask('+')"/>
+    <input type="button" value="-" onclick="doTask('-')"/>
+    <input type="button" value="*" onclick="doTask('*')"/><br/>
+    <input type="button" value="/" onclick="doTask('/')"/>
+    <input type="button" value="=" onclick="doTask('=')"/>
+    <input type="button" value="sqrt" onclick="doTask('sqrt')"/><br/>
+    <input type="button" value="sq" onclick="doTask('sq')"/>
+    <input type="button" value="sin" onclick="doTask('sin')"/>
+    <input type="button" value="cos" onclick="doTask('cos')"/>
+    <input type="button" value="tan" onclick="doTask('tan')"/>
+    <input type="button" value="C" onclick="doTask('C')"/>
+    </div>
+    <script src="task.js"/>
+</body>
+</html>
