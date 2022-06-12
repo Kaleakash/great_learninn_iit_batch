@@ -510,6 +510,7 @@ function addToCart(){
     if(index=== -1){
         document.getElementById(itemObj.id).classList.add('toggle-heart');
         cartData= [...cartData,itemObj];
+		console.log(cartData)
     }
     else if(index > -1){
         alert("Added to cart!");
@@ -584,6 +585,7 @@ function incrementItem(){
 }
 
 var currPrice= 0;
+
 function decrementItem(){
     let itemToInc= this.parentNode.previousSibling.innerText;
     let decObj= cartData.find(element=>element.name==itemToInc);
