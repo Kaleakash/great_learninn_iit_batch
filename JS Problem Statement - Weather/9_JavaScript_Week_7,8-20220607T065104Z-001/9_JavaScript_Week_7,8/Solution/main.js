@@ -9,20 +9,24 @@ searchbox.addEventListener('keypress', setQuery);
 function setQuery(e) {
   //console.log(e)
   if (e.keyCode == 13) {
-    getResults(searchbox.value);
+    getResults(searchbox.value);      // pass city name 
   }
 }
 
+function getCity() {
+  alert("event fired..")
+  let city = document.getElementById("city").value;
+  getResults(city);
+}
 function getResults (query) {
   fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
     .then(weather =>weather.json()).then((response)=>{
-      
       //console.log(response)
       var result = response.message;
      if(result!=undefined){
         alert(result);
      }{
-      displayResults(response)
+        displayResults(response)
      }
       }
       ).catch(error=>{
@@ -35,8 +39,9 @@ function displayResults (weather) {
   city.innerText = `${weather.name}, ${weather.sys.country}`;
 
   let now = new Date();
+  alert(now)
   let date = document.querySelector('.location .date');
-  date.innerText = dateBuilder(now);
+  date.innerText = dateBuilder(now);  // day date month year 
 
   let temp = document.querySelector('.current .temp');
   temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
